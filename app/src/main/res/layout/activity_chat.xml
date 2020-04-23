@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    tools:context="com.example.gopal.quikrdemo.ChatActivity">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/chat_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44sp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/message_edit_text"
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@drawable/rectangular_shape"
+            android:hint="@string/type_a_message"
+            android:paddingStart="10sp"
+            android:textColorHint="@color/secondaryText" />
+
+        <Button
+            android:id="@+id/send_button"
+            android:layout_width="50sp"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:background="@drawable/ic_send" />
+
+    </LinearLayout>
+
+</RelativeLayout>

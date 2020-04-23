@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/product_details_image_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="100sp"
+        android:layout_marginTop="16sp" />
+
+    <TextView
+        android:id="@+id/product_name"
+        style="@style/text_header_style"
+        android:textStyle="bold"
+        tools:text="Product Name" />
+
+    <TextView
+        android:id="@+id/product_price"
+        style="@style/text_header_style"
+        android:textColor="#008BCF"
+        android:textStyle="bold"
+        tools:text="Product price" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15sp"
+        android:layout_marginTop="5sp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/category_dash"
+            android:textColor="@color/primaryText"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10sp"
+            android:textColor="@color/secondaryText"
+            android:textSize="15sp"
+            tools:text="Book" />
+
+    </LinearLayout>
+
+    <TextView
+        style="@style/text_header_style"
+        android:text="@string/description" />
+
+    <TextView
+        android:id="@+id/product_description"
+        style="@style/text_header_style"
+        android:textColor="@color/secondaryText"
+        android:textSize="15sp"
+        tools:text="Description Value" />
+
+    <TextView
+        android:id="@+id/comments_text_view"
+        style="@style/text_header_style"
+        android:text="@string/click_to_see_write_comments" />
+
+
+</LinearLayout>

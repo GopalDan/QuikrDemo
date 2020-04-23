@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">QuikrDemo</string>
+    <string name="key_user_name">user_name</string>
+    <string name="sign_in">Sign in</string>
+    <string name="key_user_phone_number">userPhoneNumber</string>
+    <string name="key_count_of_listed_product_by_user">listedProductCount</string>
+    <string name="rupees">\u20B9</string>
+    <string name="file_name">fileName</string>
+    <string name="key_product_id">id</string>
+    <string name="key_seller_name">sellerName</string>
+    <string name="type_a_message">Type a message</string>
+    <string name="your_name">Your name</string>
+    <string name="your_phone_number">Your phone number</string>
+    <string name="enter_otp">Enter otp</string>
+    <string name="product_name">Product Name</string>
+    <string name="product_name_hint">product name</string>
+    <string name="product_price">Product Price</string>
+    <string name="product_price_hint">product price</string>
+    <string name="product_description">Product Description</string>
+    <string name="description_of_product">description of product</string>
+    <string name="category">Category</string>
+    <string name="add_photo">Add Photo</string>
+    <string name="you_can_add_max_5_photos">You can add max 5 photos</string>
+    <string name="post">post</string>
+    <string name="category_dash">Category -</string>
+    <string name="description">Description</string>
+    <string name="click_to_see_write_comments">Click to see/write comments!</string>
+</resources>

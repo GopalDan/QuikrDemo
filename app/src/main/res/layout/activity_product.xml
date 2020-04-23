@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.gopal.quikrdemo.ProductActivity">
+
+    <TextView
+        style="@style/text_header_style"
+        android:layout_marginTop="15sp"
+        android:text="@string/product_name" />
+
+    <EditText
+        android:id="@+id/product_name"
+        style="@style/edit_field_style"
+        android:hint="@string/product_name_hint"
+        android:inputType="text|textCapWords" />
+
+    <TextView
+        style="@style/text_header_style"
+        android:text="@string/product_price" />
+
+    <EditText
+        android:id="@+id/product_price"
+        style="@style/edit_field_style"
+        android:hint="@string/product_price_hint"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        style="@style/text_header_style"
+        android:text="@string/product_description" />
+
+    <EditText
+        android:id="@+id/product_description"
+        style="@style/edit_field_style"
+        android:hint="@string/description_of_product"
+        android:inputType="text|textCapSentences" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="15sp"
+            android:layout_marginTop="5sp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif"
+            android:text="@string/category"
+            android:textColor="@color/primaryText"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150sp"
+        android:layout_marginTop="16sp"
+        android:orientation="vertical">
+
+        <HorizontalScrollView
+            android:id="@+id/horizontal_scroll_view"
+            android:layout_width="wrap_content"
+            android:layout_height="100sp"
+            android:layout_gravity="center_horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/image_recycler_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/upload_image"
+                    android:layout_width="100sp"
+                    android:layout_height="100sp"
+                    android:layout_toEndOf="@id/image_recycler_view"
+                    android:src="@drawable/add_image" />
+            </RelativeLayout>
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/add_photo_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="14sp"
+            android:layout_marginTop="4sp"
+            android:text="@string/add_photo"
+            android:textColor="@color/primaryText"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/max_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="14sp"
+            android:text="@string/you_can_add_max_5_photos"
+            android:textColor="@color/secondaryText" />
+
+        <TextView
+            android:id="@+id/count_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14sp"
+            android:textColor="@color/primaryText"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:text="(4/5)" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/post_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/post" />
+
+
+</LinearLayout>

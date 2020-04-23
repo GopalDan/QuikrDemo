@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.gopal.quikrdemo.PhoneAuthenticationActivity">
+
+    <ImageView
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50sp"
+        android:src="@drawable/add_image" />
+
+    <EditText
+        android:id="@+id/user_name_edit_text"
+        style="@style/edit_field_style"
+        android:layout_marginTop="32sp"
+        android:hint="@string/your_name"
+        android:inputType="text|textCapWords" />
+
+    <EditText
+        android:id="@+id/user_phone_number_edit_text"
+        style="@style/edit_field_style"
+        android:layout_marginTop="4sp"
+        android:hint="@string/your_phone_number"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/otp_edit_text"
+        style="@style/edit_field_style"
+        android:layout_marginTop="4sp"
+        android:hint="@string/enter_otp"
+        android:inputType="number"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/sign_in_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16sp"
+        android:text="@string/sign_in" />
+
+</LinearLayout>
