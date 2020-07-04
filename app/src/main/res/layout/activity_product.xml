@@ -41,7 +41,8 @@
         android:layout_width="match_parent"
         android:layout_height="40sp"
         android:orientation="horizontal"
-        android:weightSum="2">
+        android:weightSum="2"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="0sp"

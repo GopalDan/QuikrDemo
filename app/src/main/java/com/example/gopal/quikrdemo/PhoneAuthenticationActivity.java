@@ -90,7 +90,7 @@ public class PhoneAuthenticationActivity extends AppCompatActivity {
 
             @Override
             public void onVerificationCompleted(PhoneAuthCredential credential) {
-//                signInWithPhoneAuthCredential(credential);
+                signInWithPhoneAuthCredential(credential);
             }
 
             @Override

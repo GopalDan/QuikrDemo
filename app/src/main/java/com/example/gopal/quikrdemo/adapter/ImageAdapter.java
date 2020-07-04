@@ -33,6 +33,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
     @Override
     public void onBindViewHolder(ImageViewHolder holder, int position) {
         String imageUri = imageList.get(position);
+//        String updatedUri = imageUri.replace("?=", "&=");
         Glide.with(context)
                 .load(imageUri)
                 .placeholder(R.drawable.place_holder_image)

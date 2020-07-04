@@ -73,7 +73,7 @@ public class ProductActivity extends AppCompatActivity {
         mAddPhotoTextView = findViewById(R.id.add_photo_text_view);
         mMaxTextView = findViewById(R.id.max_text_view);
         mCountTextView = findViewById(R.id.count_text_view);
-        getSupportActionBar().setTitle("Post Your Product");
+        getSupportActionBar().setTitle("Post Your Book");
 
         mFirebaseFirestore = FirebaseFirestore.getInstance();
         mFirebaseStorage = FirebaseStorage.getInstance();

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">QuikrDemo</string>
+    <string name="app_name">BookZone</string>
     <string name="key_user_name">user_name</string>
     <string name="sign_in">Sign in</string>
     <string name="key_user_phone_number">userPhoneNumber</string>
@@ -12,12 +12,12 @@
     <string name="your_name">Your name</string>
     <string name="your_phone_number">Your phone number</string>
     <string name="enter_otp">Enter otp</string>
-    <string name="product_name">Product Name</string>
-    <string name="product_name_hint">product name</string>
-    <string name="product_price">Product Price</string>
-    <string name="product_price_hint">product price</string>
-    <string name="product_description">Product Description</string>
-    <string name="description_of_product">description of product</string>
+    <string name="product_name">Book Name</string>
+    <string name="product_name_hint">book name</string>
+    <string name="product_price">Book Price</string>
+    <string name="product_price_hint">book price</string>
+    <string name="product_description">Book Description</string>
+    <string name="description_of_product">description of book</string>
     <string name="category">Category</string>
     <string name="add_photo">Add Photo</string>
     <string name="you_can_add_max_5_photos">You can add max 5 photos</string>

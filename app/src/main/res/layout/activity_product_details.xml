@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/product_details_image_recycler_view"
@@ -29,7 +32,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15sp"
         android:layout_marginTop="5sp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
@@ -65,5 +69,37 @@
         style="@style/text_header_style"
         android:text="@string/click_to_see_write_comments" />
 
+    <Button
+        android:id="@+id/contact_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact Seller"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8sp"/>
 
-</LinearLayout>
+    <EditText
+        android:id="@+id/upi_id_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="UPI id"
+        android:inputType="text"
+        android:visibility="gone"/>
+    <EditText
+        android:id="@+id/amount_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter the amount"
+        android:inputType="number"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/pay_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pay Seller"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8sp"/>
+
+    </LinearLayout>
+
+</ScrollView>
