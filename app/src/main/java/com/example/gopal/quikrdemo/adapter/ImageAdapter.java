@@ -36,6 +36,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
 //        String updatedUri = imageUri.replace("?=", "&=");
         Glide.with(context)
                 .load(imageUri)
+                .centerCrop()
                 .placeholder(R.drawable.place_holder_image)
                 .into(holder.imageView);
     }

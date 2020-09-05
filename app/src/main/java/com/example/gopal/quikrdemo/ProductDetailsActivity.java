@@ -277,4 +277,5 @@ public class ProductDetailsActivity extends AppCompatActivity {
         }
         return false;
     }
+
 }

@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.example.gopal.quikrdemo.adapter.ProductAdapter;
 import com.example.gopal.quikrdemo.pojo.Product;
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         mFirebaseFirestore = FirebaseFirestore.getInstance();
         productArrayList = new ArrayList<>();
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         final ProductAdapter adapter = new ProductAdapter(this, productArrayList);
         recyclerView.setAdapter(adapter);
         showProgressDialog("Loading Data...");

@@ -2,15 +2,22 @@ package com.example.gopal.quikrdemo.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.gopal.quikrdemo.ProductDetailsActivity;
 import com.example.gopal.quikrdemo.R;
 import com.example.gopal.quikrdemo.RecyclerTouchListner;
@@ -18,7 +25,6 @@ import com.example.gopal.quikrdemo.pojo.Product;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
     private ArrayList<Product> productArrayList;
@@ -36,15 +42,37 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     }
 
     @Override
-    public void onBindViewHolder(ProductViewHolder holder, final int position) {
+    public void onBindViewHolder(final ProductViewHolder holder, final int position) {
 
         final Product product = productArrayList.get(position);
         String name = product.getProductName();
         String price = context.getResources().getString(R.string.rupees) + product.getProductPrice();
         List<String> imageList = product.getProductImageList();
-        LinearLayoutManager lm = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+
+       /* LinearLayoutManager lm = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
         holder.mainPageImageRecycler.setLayoutManager(lm);
-        holder.mainPageImageRecycler.setAdapter(new ImageAdapter(context, imageList));
+        holder.mainPageImageRecycler.setAdapter(new ImageAdapter(context, imageList));*/
+
+      /*  Glide.with(context)
+                .load(imageList.get(0))
+                .placeholder(R.drawable.place_holder_image)
+                .into(holder.productImageView);
+*/
+        Glide.with(context)
+                .load(imageList.get(0))
+                .asBitmap()
+                .centerCrop()
+                .placeholder(R.drawable.place_holder_image)
+                .into(new BitmapImageViewTarget(holder.productImageView) {
+            @Override
+            protected void setResource(Bitmap resource) {
+                RoundedBitmapDrawable circularBitmapDrawable =
+                        RoundedBitmapDrawableFactory.create(context.getResources(), resource);
+                circularBitmapDrawable.setCornerRadius( 24.0f);
+//                circularBitmapDrawable.setCircular(true);
+                holder.productImageView.setImageDrawable(circularBitmapDrawable);
+            }
+        });
 
         holder.productNameTextView.setText(name);
         holder.productPriceTextView.setText(price);
@@ -87,15 +115,16 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     class ProductViewHolder extends RecyclerView.ViewHolder {
         RecyclerView mainPageImageRecycler;
         TextView productNameTextView, productPriceTextView;
-        CardView rootLayout;
+        ImageView productImageView;
+        LinearLayout rootLayout;
 
         public ProductViewHolder(View view) {
             super(view);
             mainPageImageRecycler = view.findViewById(R.id.main_page_image_recycler_view);
             productNameTextView = view.findViewById(R.id.product_name);
             productPriceTextView = view.findViewById(R.id.product_price);
+            productImageView = view.findViewById(R.id.product_image);
             rootLayout = view.findViewById(R.id.root_layout);
-
         }
     }
 

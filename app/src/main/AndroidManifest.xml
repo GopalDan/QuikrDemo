@@ -3,6 +3,7 @@
     package="com.example.gopal.quikrdemo">
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 
     <application
@@ -23,10 +24,8 @@
             android:name=".ProductActivity"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".ProductDetailsActivity"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".ChatActivity"
-            android:parentActivityName=".ProductDetailsActivity"/>
+            android:name=".ProductDetailsActivity" />
+        <activity android:name=".ChatActivity" />
         <activity android:name=".MainActivity"/>
     </application>
 

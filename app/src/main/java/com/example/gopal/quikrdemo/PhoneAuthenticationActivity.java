@@ -133,7 +133,6 @@ public class PhoneAuthenticationActivity extends AppCompatActivity {
             }
         };
 
-
     }
 
     private void showProgressDialog(String message) {
@@ -188,6 +187,7 @@ public class PhoneAuthenticationActivity extends AppCompatActivity {
                         }
                     }
                 });
+
     }
 
     private void saveUserData(String userName, String userPhoneNumber) {
@@ -198,6 +198,5 @@ public class PhoneAuthenticationActivity extends AppCompatActivity {
         editor.putInt(getString(R.string.key_count_of_listed_product_by_user), 0);
         editor.apply();
     }
-
 
 }

@@ -8,4 +8,5 @@
     <color name="lightPrimaryColor">#BBDEFB</color>
     <color name="icons">#FFFFFF</color>
     <color name="dividerColor">#BDBDBD</color>
+    <color name="white">#ffffff</color>
 </resources>

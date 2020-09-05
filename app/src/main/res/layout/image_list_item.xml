@@ -1,5 +1,13 @@
-<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/image_item"
-    android:layout_width="100sp"
-    android:layout_height="100sp"
-    android:padding="4sp" />
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160sp"
+    android:layout_height="160sp"
+    android:layout_margin="4sp">
+
+    <ImageView
+        android:contentDescription="book image"
+        android:id="@+id/image_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</FrameLayout>

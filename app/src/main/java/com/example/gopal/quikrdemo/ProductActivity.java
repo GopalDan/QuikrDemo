@@ -1,11 +1,15 @@
 package com.example.gopal.quikrdemo;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -32,6 +36,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -182,13 +188,14 @@ public class ProductActivity extends AppCompatActivity {
         if (requestCode == RC_IMAGE_PICKER && resultCode == RESULT_OK) {
             showProgressDialog("Uploading...");
             Uri selectedImageUri = data.getData();
-//            try {
-//                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImageUri);
-//                mUploadImage.setImageBitmap(bitmap);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
 
+            /*  Uri aftermath = compressImage_getUri(selectedImageUri);
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), aftermath);
+                mUploadImage.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }*/
 
             StorageReference photoRef = mStorageReference.child(selectedImageUri.getLastPathSegment());
             UploadTask uploadTask = photoRef.putFile(selectedImageUri);
@@ -222,7 +229,6 @@ public class ProductActivity extends AppCompatActivity {
                         }
                     }, 1500);
 
-
                 }
 
             });
@@ -236,7 +242,70 @@ public class ProductActivity extends AppCompatActivity {
 
                 }
             });
+
         }
+
+    }
+
+    private Uri compressImage_getUri(Uri uri){
+        Log.e(TAG, "URI before: " + uri);
+        Bitmap bitmap = null;
+        try { //1  Creating Bitmap from URI
+            bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        int mb = 1024*1024;
+        Log.e(TAG, "before compress" );
+        Log.e(TAG, "onActivityResult: size: " + (bitmap.getByteCount()/mb));
+        Log.e(TAG, "onActivityResult: width: " + bitmap.getWidth());
+        Log.e(TAG, "onActivityResult: height: " + (bitmap.getHeight()));
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        Log.e(TAG, "after compress" );
+        Log.e(TAG, "onActivityResult: size: " + (bitmap.getByteCount()/mb));
+        Log.e(TAG, "onActivityResult: width: " + bitmap.getWidth());
+        Log.e(TAG, "onActivityResult: height: " + (bitmap.getHeight()));
+        String path = MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, "Title", null);
+        Log.e(TAG, "URI after: " + Uri.parse(path));
+        return Uri.parse(path);
+    }
+
+    private void compressImage(String uri){
+        Bitmap bitmap = null;
+        try { //1  Creating Bitmap from URI
+            bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), Uri.parse(uri));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Log.e(TAG, "before compress" );
+        Log.e(TAG, "onActivityResult: size: " + (bitmap.getByteCount()));
+        Log.e(TAG, "onActivityResult: width: " + bitmap.getWidth());
+        Log.e(TAG, "onActivityResult: height: " + (bitmap.getHeight()));
+
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        // 2 re-defining the bitmap size
+        bitmap = Bitmap.createScaledBitmap(bitmap, 400, 400, false);
+        // 3 Compressing the Bitmap
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        //4 Decode the Bitmap
+        Bitmap compressedBitmap = BitmapFactory.decodeByteArray(byteArray,0,byteArray.length);
+        // 5 show the compressed Bitmap
+//        imageView.setImageBitmap(compressedBitmap);
+        Log.e(TAG, "after compress" );
+        Log.e(TAG, "onActivityResult: size: " + (compressedBitmap.getByteCount()));
+        Log.e(TAG, "onActivityResult: width: " + compressedBitmap.getWidth());
+        Log.e(TAG, "onActivityResult: height: " + (compressedBitmap.getHeight()));
+
+    }
+
+    public Uri getImageUri(Context inContext, Bitmap inImage) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
+        return Uri.parse(path);
     }
 
     @Override
